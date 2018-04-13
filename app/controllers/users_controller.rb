@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  #before_action :set_user, only: [:show, :edit]
 
   def index
     @user = User.all
   end
 
   def show
+    @user = User.find(params[:id])
   end
 
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
