@@ -1,11 +1,11 @@
 class UsersController < ApplicationController
+  before_action :set_user, only: [:show]
 
   def index
-    @teste = 'Ruby poderoso para criacao de sistemas web'
+    @user = User.all
   end
 
   def show
-    @user = User.find(user_params)
   end
 
   def new
@@ -23,7 +23,13 @@ class UsersController < ApplicationController
   end
 
   private
-  def user_params
-    params.require(:user).permit(:full_name, :location, :description, :description)
+
+  def set_user
+    @user = User.find(params[:id])
   end
+
+  def user_params
+   params.require(:user).permit(:full_name, :location, :description, :bio)
+  end
+
 end
