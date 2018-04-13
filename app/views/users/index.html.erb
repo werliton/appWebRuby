@@ -1,1 +1,19 @@
-<p><%= @teste  %></p>
+<h1>Usuários cadastrados...</h1>
+
+
+<table>
+  <tr>
+    <td>Full Name</td>
+    <td>Location</td>
+    <td>Email</td>
+  </tr>
+  <% @user.each do |user| %>
+  <tr>
+    <td><%= user.full_name %></td>
+    <td><%= user.location %></td>
+    <td><%= user.email %></td>
+  </tr>
+  <% end %>
+</table>
+
+<%=	 link_to 'New User', new_user_path %>
