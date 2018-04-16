@@ -27,6 +27,16 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user,
+                  :notice => 'Cadastro atualizado com sucesso!'
+    else
+      render :update
+    end
+  end
+
   private
 
   def set_user
@@ -34,7 +44,7 @@ class UsersController < ApplicationController
   end
 
   def user_params
-   params.require(:user).permit(:full_name, :location, :description, :bio)
+   params.require(:user).permit(:email, :full_name, :location, :description, :bio)
   end
 
 end
