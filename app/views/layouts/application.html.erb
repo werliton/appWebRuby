@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Colchonet</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico" type="text/css">
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -9,6 +10,24 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header id="header-wrap">
+      <h1><%= link_to "colcho.net", root_path  %></h1>
+      <nav>
+        <ul>
+          <li><%= link_to "Quartos", rooms_path %></li>
+          <li><%= link_to "Cadastro", new_user_path %></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div id="content">
+      <% if notice.present? %>
+        <p id="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p id="alert"><%= alert %></p>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
