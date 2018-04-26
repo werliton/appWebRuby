@@ -12,16 +12,19 @@
   <p>
     <%= f.label :full_name  %>
     <%= f.text_field :full_name  %>
+    <% error_tag @user, :full_name %>
   </p>
 
   <p>
     <%=	 f.label :location %>
     <%= f.text_field :location %>
+    <% error_tag @user, :location %>
   </p>
 
   <p>
     <%= f.label :email %>
     <%= f.text_field :email %>
+    <% error_tag @user, :email %>
   </p>
 
   <p>
