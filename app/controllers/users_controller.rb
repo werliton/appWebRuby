@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     #@teste = 'Ruby poderoso para criacao de sistemas web'
-	@user = User.all
+	  @users = User.all
   end
 
   def show
@@ -17,6 +17,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user, :notice => 'Cadastro atualizado com sucesso!'
+    else
+      render :update
+    end
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -29,6 +38,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:password, :password_confirmation, :full_name, :location, :email, :bio)
+    params.require(:user).permit(:full_name, :location, :email, :password, :bio)
   end
 end
