@@ -1,15 +1,20 @@
 class UsersController < ApplicationController
 
   def index
-    @teste = 'Ruby poderoso para criacao de sistemas web'
+    #@teste = 'Ruby poderoso para criacao de sistemas web'
+	@user = User.all
   end
 
   def show
-    @user = User.find(user_params)
+    @user = User.find(params[:id])
   end
 
   def new
     @user = User.new
+  end
+
+  def edit
+    @user = User.find(params[:id])
   end
 
   def create
@@ -24,6 +29,6 @@ class UsersController < ApplicationController
 
   private
   def user_params
-    params.require(:user).permit(:full_name, :location, :email, :bio)
+    params.require(:user).permit(:password, :password_confirmation, :full_name, :location, :email, :bio)
   end
 end

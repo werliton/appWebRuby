@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
 
-	attr_accessor :bio, :email, :full_name, :location, :password
+	attr_accessor :bio, :email, :full_name, :location, :password, :password_confirmation
 
   validates_presence_of :email, :full_name, :location, :password
   validates_confirmation_of :password
