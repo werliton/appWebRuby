@@ -13,6 +13,8 @@ pt-BR:
       title: "Título"
       location: "Localização"
       bio: "Bio"
+    confirmations:
+      success: Email confirmado com sucesso, obrigado!
   
   rooms:
     new:
