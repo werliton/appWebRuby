@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
+  #before_action :set_user, only: [:show, :edit]
 
   def index
-    #@teste = 'Ruby poderoso para criacao de sistemas web'
-	  @users = User.all
+    @user = User.all
   end
 
   def show
@@ -17,19 +17,6 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def destroy
-    @user.destroy
-  end
-
-  def update
-    @user = User.find(params[:id])
-    if @user.update_attributes(user_params)
-      redirect_to @user, :notice => 'Cadastro atualizado com sucesso!'
-    else
-      render :update
-    end
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
@@ -40,8 +27,24 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to @user,
+                  :notice => 'Cadastro atualizado com sucesso!'
+    else
+      render :update
+    end
+  end
+
   private
+
+  def set_user
+    @user = User.find(params[:id])
+  end
+
   def user_params
     params.require(:user).permit(:full_name, :location, :email, :password, :bio)
   end
+
 end
