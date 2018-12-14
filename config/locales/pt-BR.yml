@@ -58,6 +58,9 @@ pt-BR:
   layout:
       rooms: Quartos
       signup: Cadastro
+      signin: Login
+      my_profile: Meu perfil
+      signout: Logout
   
   general:
     form_error: Há erros no formulário, por favor verifique.
