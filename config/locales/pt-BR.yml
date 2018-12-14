@@ -9,6 +9,10 @@ pt-BR:
       edit: Editar Perfil
       location: "Localização: %{location}"
       bio: "Bio: %{bio}"
+    home:
+      title: "Título"
+      location: "Localização"
+      bio: "Bio"
   
   rooms:
     new:
@@ -19,9 +23,18 @@ pt-BR:
       title: "Título: %{title}"
       location: "Localização %{location}"
       description: "Descrição: %{description}"
+    home:
+      title: "Título"
+      location: "Localização"
+      description: "Descrição"
 
   links:
     back: Voltar
+    show: Detalhes
+    newRoom: Novo Quarto
+    edit: Editar
+    destroy: Delete
+    home: Início
 
   layout:
       rooms: Quartos
