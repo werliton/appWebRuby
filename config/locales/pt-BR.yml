@@ -56,6 +56,7 @@ pt-BR:
     home: Início
 
   layout:
+      new_room: Novo Quarto
       rooms: Quartos
       signup: Cadastro
       signin: Login
@@ -93,3 +94,10 @@ pt-BR:
     submit:
       user_session:
         create: 'Entrar'
+
+  flash: 
+    notice:
+      signed_in: 'Login efetuado com sucesso!'
+      signed_out: 'Logout efetuado com sucesso. Até logo!'
+    alert:
+      needs_login: 'Para continuar, você precisa estar logado!'

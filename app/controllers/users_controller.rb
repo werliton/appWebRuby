@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   #before_action :set_user, only: [:show, :edit]
 
+  before_action :can_change, :only => [:edit, :update]
+  before_action :require_no_authentication, :only => [:new, :create]
   def index
     @users = User.all
   end
@@ -54,6 +56,16 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:full_name, :location, :email, :password, :bio)
+  end
+
+  def can_change
+    unless user_signed_in? && current_user == user
+      redirect_to user_path(params[:id])
+    end
+  end
+
+  def user
+    @user ||= User.find(params[:id])
   end
 
 end
