@@ -17,6 +17,8 @@ pt-BR:
       success: Email confirmado com sucesso, obrigado!
   
   rooms:
+    index:
+      title: Quartos disponíveis
     new:
       title: Cadastrar Novo Quarto
     edit:
@@ -29,6 +31,10 @@ pt-BR:
       title: "Título"
       location: "Localização"
       description: "Descrição"
+    room:
+      owner_html: '&mdash; %{owner} (%{when})'
+      edit: 'Editar'
+      destroy: 'Remover'
 
   user_sessions:
     new:

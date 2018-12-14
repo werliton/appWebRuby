@@ -1,30 +1,3 @@
-<h1>Quartos</h1>
+<h1><%= t '.title' %></h1>
 
-<table>
-  <thead>
-    <tr>
-      <th><%= t 'rooms.home.title' %></th>
-      <th><%= t 'rooms.home.location' %></th>
-      <th><%= t 'rooms.home.description' %></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @rooms.each do |room| %>
-      <tr>
-        <td><%= room.title %></td>
-        <td><%= room.location %></td>
-        <td><%= room.description %></td>
-        <td><%= link_to t('links.show'), room %></td>
-        <td><%= link_to t('links.edit'), edit_room_path(room) %></td>
-        <td><%= link_to t('links.destroy'), room, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to t('links.newRoom'), new_room_path %>
-<%= link_to t('links.home'), root_path %>
+<%= render @rooms %>
