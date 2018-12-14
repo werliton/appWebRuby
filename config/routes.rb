@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     resources :rooms
     resources :users
 
-    resource :confirmation, :olny => [:show]
+    resource :confirmation, :only => [:show]
+
+    resource :user_sessions, :only => [:create, :new, :destroy]
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   match '/:locale' => 'home#index', :locale => LOCALES, :via => [:get, :post]

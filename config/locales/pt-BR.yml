@@ -30,6 +30,11 @@ pt-BR:
       location: "Localização"
       description: "Descrição"
 
+  user_sessions:
+    new:
+      title: 'Login'
+      sign_up: 'Cadastre-se'
+
   signup_mailer:
     confirm_email:
       subject: 'Colcho.net - Confirme seu email'
@@ -71,3 +76,17 @@ pt-BR:
         description: Descrição
         location: Localização
         title: Título
+
+  activemodel:
+    attributes:
+      user_session:
+        email: Email
+        password: Senha
+    errors:
+      messages:
+        invalid_login: 'Usuário ou senha inválidos'
+    
+  helpers:
+    submit:
+      user_session:
+        create: 'Entrar'

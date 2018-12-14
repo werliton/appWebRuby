@@ -1,5 +1,17 @@
 class User < ApplicationRecord
 
+  scope :most_recent, -> {
+    order('created_at DESC')
+  }
+  scope :from_sampa, -> {
+    where(:location =>'São Paulo')
+  }
+
+  scope :confirmed, -> {
+    where('confirmed_at IS NOT NULL')
+  }
+
+  #scope :from, ->(location) { where(:location => location) }
 	#attr_accessible :full_name, :location, :email, :password, :password_confirmation, :bio
 
   before_create :generate_token
@@ -13,6 +25,12 @@ class User < ApplicationRecord
 
   def generate_token
     self.confirmation_token = SecureRandom.urlsafe_base64
+  end
+
+  def self.authenticate(email, password)
+    confirmed.
+    find_by_email(email).
+    try(:authenticate, password)
   end
 
   def confirm!
