@@ -9,6 +9,14 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def destroy
+    if User.destroy(params[:id])
+      redirect_to users_url
+    else
+      redirect_to @user, :notice => 'Não foi possivel deletar usuário'
+    end
+  end
+
   def new
     @user = User.new
   end
@@ -20,6 +28,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      SignupMailer.confirm_email(@user).deliver
       redirect_to @user,
                   :notice => 'Cadastro criado com sucesso!'
     else
