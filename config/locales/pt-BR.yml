@@ -1,5 +1,7 @@
 pt-BR:
   users:
+    index:
+      title: Usuários cadastrados
     new:
       title: Cadastro
     edit:

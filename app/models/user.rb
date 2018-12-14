@@ -14,7 +14,8 @@ class User < ApplicationRecord
   #scope :from, ->(location) { where(:location => location) }
 	#attr_accessible :full_name, :location, :email, :password, :password_confirmation, :bio
   has_many :rooms
-  
+  has_many :reviews
+
   before_create :generate_token
 
   validates_presence_of :email, :full_name, :location

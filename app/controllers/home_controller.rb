@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
     def index
-        @rooms = Room.limit(3)
+        @rooms = Room.most_recent
     end
 end
