@@ -35,4 +35,8 @@ class RoomPresenter
     def to_partial_path
         'room'
     end
+
+    def stars
+        @room.reviews.size
+    end
 end
