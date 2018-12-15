@@ -4,6 +4,8 @@ class RoomsController < ApplicationController
   # GET /rooms
   # GET /rooms.json
   def index
+    @search_query = params[:q]
+    rooms = Room.seach(@search_query)
     @rooms = Room.most_recent.map do |room|
       RoomPresenter.new(room, self, false)
     end

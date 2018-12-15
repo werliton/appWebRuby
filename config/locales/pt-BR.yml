@@ -21,6 +21,9 @@ pt-BR:
   rooms:
     index:
       title: Quartos disponíveis
+      search_results: 'Resultados da busca'
+    search:
+      search_for: 'Buscar por...'
     new:
       title: Cadastrar Novo Quarto
     edit:
