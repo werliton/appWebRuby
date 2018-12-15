@@ -13,8 +13,8 @@ class User < ApplicationRecord
 
   #scope :from, ->(location) { where(:location => location) }
 	#attr_accessible :full_name, :location, :email, :password, :password_confirmation, :bio
-  has_many :rooms
-  has_many :reviews
+  has_many :rooms, :dependent => :destroy
+  has_many :reviews, :dependent => :destroy
 
   before_create :generate_token
 

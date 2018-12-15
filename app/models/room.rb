@@ -2,7 +2,7 @@ class Room < ApplicationRecord
 
     validates_presence_of :title, :location, :description
     belongs_to :user
-    has_many :reviews
+    has_many :reviews, :dependent => :destroy
     has_many :reviewed_rooms, :through => :reviews, :source => :room
 
     scope :most_recent, -> {
